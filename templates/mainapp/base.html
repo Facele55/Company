@@ -1,0 +1,109 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="UTF-8">
+      <!-- Tell the browser to be responsive to screen width -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Theme style -->
+  <link rel="stylesheet" href="{% static 'dist/css/adminlte.min.css'  %}">
+
+
+  <!-- Google Font: Source Sans Pro -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+  <!-- Custom javascript -->
+    <link rel="stylesheet" href="{% static "custom/js/custom.js" %}">
+    <!-- Custom css -->
+    <link rel="stylesheet" href="{% static "custom/css/style.css" %}">
+
+    <title>Company</title>
+
+</head>
+<body>
+
+    <div class=" d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3  border-bottom shadow-sm">
+  <h5 class="my-0 mr-md-auto font-weight-normal">
+      <a class=" " href="{% url 'home' %}">Company</a><br>
+  </h5>
+
+    <!-- 
+        <div class="col-auto my-1">
+      <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect">Preference</label>
+      <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+        <option selected>lan...</option>
+        <option value="1">eng</option>
+        <option value="2">rus</option>
+        <option value="3">ukr</option>
+      </select>
+    </div>
+        <div class="custom-control custom-switch" >
+            <label class="custom-control-label " > dark theme</label>
+        </div>
+             -->
+
+  <nav class="my-2 my-md-0 mr-md-3">
+
+
+
+  </nav>
+
+            {% if user.is_authenticated %}
+                <a href="{% url 'user_home' %}"><h5 class="user1">({{ user }})</h5></a>
+            <a class="btn btn-outline-danger" href="{% url 'logout_user' %}">Log Out</a>
+            {% else %}
+              <a class="btn btn-outline-primary" href="{% url 'login' %}">Sign in</a>
+                <a class="btn btn-primary" href="{% url 'sign_up' %}">Sign up</a>
+
+            {% endif %}
+
+
+
+</div>
+{% block content %}
+
+
+{% endblock %}
+
+    <!-- Bootstrap 4 -->
+<script src="{% static "bootstrap-4.6.0-dist/js/bootstrap.bundle.min.js"  %}"></script>
+<!-- jQuery -->
+<script src="{% static "jquery/jquery.min.js"  %}"></script>
+<!-- jQuery UI 1.11.4 -->
+<script src="{% static "jquery-ui/jquery-ui.min.js"  %}"></script>
+<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+<script>
+  $.widget.bridge('uibutton', $.ui.button)
+</script>
+
+
+
+<!-- AdminLTE App -->
+<script src="{% static 'dist/js/adminlte.js'  %}"></script>
+<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<script src="{% static 'dist/js/pages/dashboard.js'  %}"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="{% static 'dist/js/demo.js'  %}"></script>
+
+
+{% block customjs %}
+
+  <script type="text/javascript">
+
+
+
+  </script>
+
+{% endblock %}
+
+<footer>
+        {% include 'mainapp/footer.html' %}
+    </footer>
+
+</body>
+
+</html>

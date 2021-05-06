@@ -1,0 +1,16 @@
+{% extends 'user_template/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<h1>Company Name</h1>
+    <div class="container">
+    <p class="col-12">
+        <h1>User Home</h1>
+        <a href="{% url 'user_profile' %}">
+            <h5>Profile</h5>
+        </a>
+
+    </p>
+    </div>
+{% endblock %}
